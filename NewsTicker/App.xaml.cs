@@ -12,11 +12,55 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using StreamingClient;
+using CIAPI.Streaming;
 
 namespace NewsTicker
 {
     public partial class App : Application
     {
+        public static CIAPI.Rpc.Client ctx;
+        private static MainViewModel viewModel = null;
+        private static IStreamingClient streamingClient;
+
+        public static readonly Uri RPC_URI = new Uri("https://ciapipreprod.cityindextest9.co.uk/tradingapi");
+        public static readonly Uri STREAMING_URI = new Uri("https://pushpreprod.cityindextest9.co.uk/CITYINDEXSTREAMING");
+        public const string USERNAME = "DM833688";
+        public const string PASSWORD = "password";
+
+        /// <summary>
+        /// A static ViewModel used by the views to bind against.
+        /// </summary>
+        /// <returns>The MainViewModel object.</returns>
+        public static MainViewModel ViewModel
+        {
+            get
+            {
+                // Delay creation of the view model until necessary
+                if (viewModel == null)
+                    viewModel = new MainViewModel();
+
+                return viewModel;
+            }
+        }
+
+        /// <summary>
+        /// A static SreamingClient to subscribe to news. An application should only ever have one of these.
+        /// </summary>
+        /// <returns>The IStreamingClient object.</returns>
+        public static IStreamingClient StreamingClient
+        {
+            get
+            {                
+                if (streamingClient == null)
+                {
+                    streamingClient = StreamingClientFactory.CreateStreamingClient(App.STREAMING_URI, App.USERNAME, App.ctx.SessionId);
+                }
+                
+                return streamingClient;
+            }
+        }
+
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
@@ -56,18 +100,25 @@ namespace NewsTicker
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            //Instantiate Rpc client object
+            ctx = new CIAPI.Rpc.Client(RPC_URI);
         }
 
         // Code to execute when the application is activated (brought to foreground)
         // This code will not execute when the application is first launched
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
+            //TODO: why? does the viewmodel get disposed?
+
+            // Ensure that application state is restored appropriately
+           
         }
 
         // Code to execute when the application is deactivated (sent to background)
         // This code will not execute when the application is closing
         private void Application_Deactivated(object sender, DeactivatedEventArgs e)
         {
+            // Ensure that required application state is persisted here.
         }
 
         // Code to execute when the application is closing (eg, user hit Back)

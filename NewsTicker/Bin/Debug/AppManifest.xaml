@@ -1,0 +1,11 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="NewsTicker" EntryPointType="NewsTicker.App" RuntimeVersion="3.0.40624.0">
+  <Deployment.Parts>
+    <AssemblyPart x:Name="NewsTicker" Source="NewsTicker.dll" />
+    <AssemblyPart x:Name="CIAPI.Phone7" Source="CIAPI.Phone7.dll" />
+    <AssemblyPart x:Name="CityIndex.JsonClient.Phone7" Source="CityIndex.JsonClient.Phone7.dll" />
+    <AssemblyPart x:Name="Common.Logging.Phone7" Source="Common.Logging.Phone7.dll" />
+    <AssemblyPart x:Name="Newtonsoft.Json.Silverlight" Source="Newtonsoft.Json.Silverlight.dll" />
+    <AssemblyPart x:Name="Phone7.Lightstream" Source="Phone7.Lightstream.dll" />
+    <AssemblyPart x:Name="StreamingClient.Phone7" Source="StreamingClient.Phone7.dll" />
+  </Deployment.Parts>
+</Deployment>

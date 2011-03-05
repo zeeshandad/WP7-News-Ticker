@@ -1,0 +1,16 @@
+<local:MainViewModel 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:NewsTicker" 
+    SampleProperty="Sample Text Property Value">
+    
+    <local:MainViewModel.Items>
+        <local:ItemViewModel Headline="Headline one" PublishDate="1/1/2011" />
+        <local:ItemViewModel Headline="Headline two" PublishDate="1/1/2011" />
+        <local:ItemViewModel Headline="Headline three" PublishDate="1/1/2011" />
+        <local:ItemViewModel Headline="Headline four" PublishDate="1/1/2011" />
+        <local:ItemViewModel Headline="Headline five" PublishDate="1/1/2011" />
+        <local:ItemViewModel Headline="Headline six" PublishDate="1/1/2011" />
+    </local:MainViewModel.Items>
+    
+</local:MainViewModel>
