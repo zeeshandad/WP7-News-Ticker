@@ -60,13 +60,13 @@
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="Newtonsoft.Json.Silverlight">
-      <HintPath>packages\CIAPI.CS.1.0.139.0\lib\Silverlight40\Newtonsoft.Json.Silverlight.dll</HintPath>
-    </Reference>
-    <Reference Include="Phone7.Lightstream">
-      <HintPath>packages\CIAPI.CS.1.0.139.0\lib\WinPhone7\Phone7.Lightstream.dll</HintPath>
+      <HintPath>packages\CIAPI.CS.1.0.139.0\lib\WinPhone7\Newtonsoft.Json.Silverlight.dll</HintPath>
     </Reference>
     <Reference Include="StreamingClient.Phone7">
       <HintPath>packages\CIAPI.CS.1.0.139.0\lib\WinPhone7\StreamingClient.Phone7.dll</HintPath>
+    </Reference>
+    <Reference Include="StreamingClient.Phone7.Lightstreamer">
+      <HintPath>packages\CIAPI.CS.1.0.139.0\lib\WinPhone7\StreamingClient.Phone7.Lightstreamer.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="system" />
