@@ -78,5 +78,15 @@ namespace NewsTicker
         {
             NavigationService.Navigate(new Uri("/SubscribeNewsPage.xaml" , UriKind.Relative));
         }
+
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {         
+            //Destroy your session
+            App.ctx.BeginLogOut(result =>
+            {
+            }, null);
+
+            base.OnBackKeyPress(e);
+        }
     }
 }

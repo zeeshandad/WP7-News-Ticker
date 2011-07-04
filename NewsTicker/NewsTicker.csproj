@@ -49,24 +49,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CIAPI.Phone7">
-      <HintPath>packages\CIAPI.CS.1.0.139.0\lib\WinPhone7\CIAPI.Phone7.dll</HintPath>
+      <HintPath>packages\CSAPI.CS.New\lib\WinPhone7\CIAPI.Phone7.dll</HintPath>
     </Reference>
     <Reference Include="CityIndex.JsonClient.Phone7">
-      <HintPath>packages\CIAPI.CS.1.0.139.0\lib\WinPhone7\CityIndex.JsonClient.Phone7.dll</HintPath>
+      <HintPath>packages\CSAPI.CS.New\lib\WinPhone7\CityIndex.JsonClient.Phone7.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging.Phone7">
-      <HintPath>packages\CIAPI.CS.1.0.139.0\lib\WinPhone7\Common.Logging.Phone7.dll</HintPath>
+      <HintPath>packages\CSAPI.CS.New\lib\WinPhone7\Common.Logging.Phone7.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="Newtonsoft.Json.Silverlight">
-      <HintPath>packages\CIAPI.CS.1.0.139.0\lib\WinPhone7\Newtonsoft.Json.Silverlight.dll</HintPath>
+      <HintPath>packages\CSAPI.CS.New\lib\WinPhone7\Newtonsoft.Json.Silverlight.dll</HintPath>
     </Reference>
     <Reference Include="StreamingClient.Phone7">
-      <HintPath>packages\CIAPI.CS.1.0.139.0\lib\WinPhone7\StreamingClient.Phone7.dll</HintPath>
-    </Reference>
-    <Reference Include="StreamingClient.Phone7.Lightstreamer">
-      <HintPath>packages\CIAPI.CS.1.0.139.0\lib\WinPhone7\StreamingClient.Phone7.Lightstreamer.dll</HintPath>
+      <HintPath>packages\CSAPI.CS.New\lib\WinPhone7\StreamingClient.Phone7.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="system" />

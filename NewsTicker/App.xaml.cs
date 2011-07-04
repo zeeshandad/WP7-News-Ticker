@@ -12,7 +12,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using StreamingClient;
 using CIAPI.Streaming;
 
 namespace NewsTicker
@@ -25,7 +24,7 @@ namespace NewsTicker
 
         public static readonly Uri RPC_URI = new Uri("https://ciapipreprod.cityindextest9.co.uk/tradingapi");
         public static readonly Uri STREAMING_URI = new Uri("https://pushpreprod.cityindextest9.co.uk/CITYINDEXSTREAMING");
-        public const string USERNAME = "DM833688";
+        public const string USERNAME = "0x234";
         public const string PASSWORD = "password";
 
         /// <summary>

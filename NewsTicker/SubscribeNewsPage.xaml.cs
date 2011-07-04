@@ -20,7 +20,7 @@ namespace NewsTicker
     public partial class SubscribeNewsPage : PhoneApplicationPage
     {
         IStreamingListener<NewsDTO> newsListener;
-        IStreamingClient streamingClient;
+        CIAPI.Streaming.IStreamingClient streamingClient;
 
         public SubscribeNewsPage()
         {
@@ -37,26 +37,26 @@ namespace NewsTicker
         }
 
         public void SubscribeToNewsHeadlineStream()
-        {            
+        {
             string searchKeywords = SearchTextBox.Text;
 
             App.ctx.BeginLogIn(App.USERNAME, App.PASSWORD, a =>
             {
                 App.ctx.EndLogIn(a);
-                
+
                 //Next we create a connection to the streaming api, using the authenticated session                
                 streamingClient = App.StreamingClient;
                 streamingClient.Connect();
 
                 //And instantiate a listener for news headlines on the appropriate topic
-                //You can have multiple listeners on one connection
-                newsListener = streamingClient.BuildListener<NewsDTO>(searchKeywords);
+                //You can have multiple listeners on one connection                
+                newsListener = streamingClient.BuildNewsHeadlinesListener(searchKeywords);
                 newsListener.Start();
 
                 //The MessageRecieved event will be triggered every time a new News headline is available,
                 //so attach a handler for that event, and wait until something comes through                
                 NewsDTO recievedNewsHeadline = null;
-                newsListener.MessageRecieved += (s, e) =>
+                newsListener.MessageReceived += (s, e) =>
                 {
                     recievedNewsHeadline = e.Data;
                     //Add this new news headline to the main items collection.
@@ -65,25 +65,44 @@ namespace NewsTicker
                     item.PublishDate = recievedNewsHeadline.PublishDate.ToString();
                     recievedNewsHeadline.StoryId = recievedNewsHeadline.StoryId;
 
-                    App.ViewModel.LoadData(item);                    
+                    App.ViewModel.LoadData(item);
                 };
-              
+
             }, null);
 
 
         }
-                
-        private void PhoneApplicationPage_Unloaded(object sender, RoutedEventArgs e)
+
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
         {
             //Clean up
             //Stop any listeners
-            newsListener.Stop();
+            if (newsListener != null)
+                newsListener.Stop();
             //Shut down the connection
-            streamingClient.Disconnect();
+            if (streamingClient != null)
+                streamingClient.Disconnect();
+
             //Destroy your session
+            
             App.ctx.BeginLogOut(result =>
-            {               
+            {
             }, null);
-        }              
+
+            base.OnBackKeyPress(e);
+        }
+
+        //private void PhoneApplicationPage_Unloaded(object sender, RoutedEventArgs e)
+        //{
+        //    //Clean up
+        //    //Stop any listeners
+        //    newsListener.Stop();
+        //    //Shut down the connection
+        //    streamingClient.Disconnect();
+        //    //Destroy your session
+        //    App.ctx.BeginLogOut(result =>
+        //    {               
+        //    }, null);
+        //}              
     }
 }
